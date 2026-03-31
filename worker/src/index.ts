@@ -118,8 +118,9 @@ async function proxyRaw(
   contentType: string,
   cacheTtl: number
 ): Promise<Response> {
+  // Always fetch fresh from GitHub Raw
   const url = `${RAW_BASE}/${path}`;
-  const upstream = await fetch(url);
+  const upstream = await fetch(url, { cache: "no-store" } as RequestInit);
 
   if (!upstream.ok) {
     return new Response(`Not found: ${path}`, { status: upstream.status });
@@ -127,7 +128,7 @@ async function proxyRaw(
 
   const headers = new Headers({
     "Content-Type": contentType,
-    "Cache-Control": `public, max-age=${cacheTtl}`,
+    "Cache-Control": cacheTtl > 0 ? `public, max-age=${cacheTtl}` : "no-store, no-cache",
   });
 
   return new Response(upstream.body, { status: 200, headers });
@@ -192,10 +193,10 @@ export default {
       return proxyRaw("setup.sh", "text/x-shellscript", 3600);
     }
 
-    // GET /ubuntu/dists/* — distribution metadata (cache 30min)
+    // GET /ubuntu/dists/* — distribution metadata (no cache for now during development)
     if (pathname.startsWith("/ubuntu/dists/")) {
       const subpath = pathname.replace("/ubuntu/dists/", "dists/");
-      return proxyRaw(subpath, contentTypeForDist(pathname), 1800);
+      return proxyRaw(subpath, contentTypeForDist(pathname), 0);
     }
 
     // GET /ubuntu/pool/... — .deb package redirect
