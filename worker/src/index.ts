@@ -85,14 +85,14 @@ function handleLanding(): Response {
   <p>APT-compatible package hosting powered by GitHub Releases. Publish <code>.deb</code> packages to GitHub and install them with <code>apt</code>.</p>
 
   <h2>Quick Setup</h2>
-  <pre>curl -fsSL https://apt-gh.dev/setup.sh | sudo bash</pre>
+  <pre>curl -fsSL https://apt-gh.tyogantengsc.workers.dev/setup.sh | sudo bash</pre>
 
   <h2>Manual Setup</h2>
   <pre># Import the signing key
-curl -fsSL https://apt-gh.dev/key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/apt-gh.gpg
+curl -fsSL https://apt-gh.tyogantengsc.workers.dev/key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/apt-gh.gpg
 
 # Add the repository
-echo "deb [signed-by=/usr/share/keyrings/apt-gh.gpg] https://apt-gh.dev/ubuntu noble main" \\
+echo "deb [signed-by=/usr/share/keyrings/apt-gh.gpg] https://apt-gh.tyogantengsc.workers.dev/ubuntu noble main" \\
   | sudo tee /etc/apt/sources.list.d/apt-gh.list
 
 # Update and install

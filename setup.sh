@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # apt-gh — Ubuntu APT Mirror setup script
-# Usage: curl -fsSL https://apt-definisi.pages.dev/setup.sh | sudo bash
+# Usage: curl -fsSL https://apt-gh.tyogantengsc.workers.dev/setup.sh | sudo bash
 set -euo pipefail
 
-MIRROR_URL="https://apt-definisi.pages.dev"
+MIRROR_URL="https://apt-gh.tyogantengsc.workers.dev"
 KEY_URL="${MIRROR_URL}/key.gpg"
 KEYRING_PATH="/etc/apt/keyrings/apt-gh.gpg"
 LIST_PATH="/etc/apt/sources.list.d/apt-gh.list"
