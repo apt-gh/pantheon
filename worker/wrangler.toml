@@ -1,3 +1,4 @@
 name = "apt-gh"
 main = "src/index.ts"
 compatibility_date = "2026-03-31"
+account_id = "e6ef302ab6c2b53d9d9b25713c90faa2"
