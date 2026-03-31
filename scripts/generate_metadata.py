@@ -129,7 +129,7 @@ def build_top_level_release(
     for component in components:
         for arch in architectures:
             comp_dir = suite_dir / component / f"binary-{arch}"
-            for name in ("Packages.gz", "Packages.xz", "Release"):
+            for name in ("Packages", "Packages.gz", "Packages.xz", "Release"):
                 fpath = comp_dir / name
                 if not fpath.exists():
                     continue
@@ -251,6 +251,7 @@ def main() -> None:
                     # Create empty Packages files so Release checksums are consistent
                     bin_dir = dists_dir / suite / component / f"binary-{arch}"
                     empty_raw = b""
+                    write_bytes(bin_dir / "Packages", empty_raw)
                     write_bytes(bin_dir / "Packages.gz", gzip.compress(empty_raw))
                     write_bytes(bin_dir / "Packages.xz", lzma.compress(empty_raw, preset=6))
                     write_component_release(dists_dir, suite, component, arch)
@@ -260,8 +261,9 @@ def main() -> None:
                 bin_dir = dists_dir / suite / component / f"binary-{arch}"
                 write_bytes(bin_dir / "Packages.gz", packages_gz)
 
-                # 3. Decompress and recompress as Packages.xz
+                # 3. Decompress, write uncompressed Packages, and recompress as Packages.xz
                 packages_raw = gzip.decompress(packages_gz)
+                write_bytes(bin_dir / "Packages", packages_raw)
                 packages_xz = lzma.compress(packages_raw, preset=6)
                 write_bytes(bin_dir / "Packages.xz", packages_xz)
 
