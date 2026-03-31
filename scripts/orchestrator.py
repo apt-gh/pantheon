@@ -91,15 +91,29 @@ def fetch_packages(upstream: str, suite: str, component: str, arch: str) -> list
 # Package-to-repo mapping
 # ---------------------------------------------------------------------------
 
-def map_package_to_repo(name: str, pool: dict, pool_lib: dict) -> str:
-    """Determine the target pool repo for a given package name."""
-    if name.startswith("lib") and len(name) >= 4:
-        fourth = name[3]
+def map_package_to_repo(filename_path: str, pool: dict, pool_lib: dict) -> str:
+    """Determine the target pool repo from the Filename: field in Packages.
+
+    The Filename field looks like: pool/main/a/apr/libapr1t64_1.7.2_amd64.deb
+    The prefix directory (3rd component) determines the repo:
+      - 'a'    → pool['a']    → apollo
+      - 'liba' → pool_lib['liba'] → atlas
+    """
+    parts = filename_path.split("/")
+    if len(parts) < 4:
+        return pool.get("0", "omega")
+    prefix = parts[2]  # e.g., 'a', 'liba', 'h', 'libx'
+
+    # Check lib* prefix first
+    if prefix.startswith("lib") and len(prefix) >= 4:
+        fourth = prefix[3]
         key = f"lib{fourth}" if not fourth.isdigit() else "lib0"
         repo = pool_lib.get(key)
         if repo:
             return repo
-    first = name[0] if name else "0"
+
+    # Regular prefix — use first character
+    first = prefix[0] if prefix else "0"
     key = first if not first.isdigit() else "0"
     return pool.get(key, pool.get("0", "omega"))
 
@@ -125,7 +139,7 @@ def do_fetch(config: dict, repo_map: dict) -> None:
                     if not pkg_name or not filename_field:
                         continue
 
-                    repo_name = map_package_to_repo(pkg_name, pool, pool_lib)
+                    repo_name = map_package_to_repo(filename_field, pool, pool_lib)
                     filename = filename_field.rsplit("/", 1)[-1]
 
                     record = {
