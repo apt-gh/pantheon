@@ -1,0 +1,20 @@
+{
+  "pool": {
+    "a": "apollo", "b": "banshee", "c": "cerberus", "d": "draco",
+    "e": "echidna", "f": "fenrir", "g": "griffin", "h": "hydra",
+    "i": "ifrit", "j": "jormungandr", "k": "kraken", "l": "leviathan",
+    "m": "minotaur", "n": "nemesis", "o": "odin", "p": "phoenix",
+    "q": "quetzalcoatl", "r": "ragnarok", "s": "scylla", "t": "titan",
+    "u": "ullr", "v": "valkyrie", "w": "wendigo", "x": "xenos",
+    "y": "ymir", "z": "zeus", "0": "omega"
+  },
+  "pool_lib": {
+    "liba": "atlas", "libb": "bifrost", "libc": "chimera", "libd": "daemon",
+    "libe": "excalibur", "libf": "fury", "libg": "gorgon", "libh": "helios",
+    "libi": "icarus", "libj": "janus", "libk": "karma", "libl": "loki",
+    "libm": "morpheus", "libn": "nyx", "libo": "ouroboros", "libp": "pandora",
+    "libq": "quasar", "libr": "reaper", "libs": "styx", "libt": "thanatos",
+    "libu": "umbra", "libv": "viper", "libw": "wraith", "libx": "xerxes",
+    "liby": "yaksha", "libz": "zephyr", "lib0": "oblivion"
+  }
+}

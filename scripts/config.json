@@ -1,0 +1,8 @@
+{
+  "upstream": "http://archive.ubuntu.com/ubuntu",
+  "suites": ["noble"],
+  "components": ["main"],
+  "architectures": ["amd64"],
+  "org": "apt-gh",
+  "worker_domain": "apt-definisi.pages.dev"
+}

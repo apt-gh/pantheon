@@ -1,0 +1,38 @@
+name: Setup Pool Repos
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: "Specific repo name (leave empty to create all)"
+        required: false
+        default: ""
+      dry_run:
+        description: "Preview without creating"
+        type: boolean
+        required: false
+        default: false
+
+jobs:
+  create-repos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Create pool repos
+        env:
+          GH_TOKEN: ${{ secrets.ORG_DISPATCH_TOKEN }}
+        run: |
+          args=""
+          if [ -n "${{ github.event.inputs.repo }}" ]; then
+            args="$args --repo ${{ github.event.inputs.repo }}"
+          fi
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            args="$args --dry-run"
+          fi
+          python scripts/create_pool_repos.py $args

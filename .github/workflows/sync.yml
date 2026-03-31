@@ -1,0 +1,72 @@
+name: Sync APT Mirror
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: "Specific suite (e.g., noble)"
+        required: false
+      component:
+        description: "Specific component (e.g., main)"
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Override config for specific suite/component
+        if: github.event.inputs.suite != '' || github.event.inputs.component != ''
+        run: |
+          python3 -c "
+          import json
+          with open('scripts/config.json') as f:
+              config = json.load(f)
+          suite = '${{ github.event.inputs.suite }}'
+          component = '${{ github.event.inputs.component }}'
+          if suite:
+              config['suites'] = [suite]
+          if component:
+              config['components'] = [component]
+          with open('scripts/config.json', 'w') as f:
+              json.dump(config, f, indent=2)
+          print(f'Config overridden: suites={config[\"suites\"]}, components={config[\"components\"]}')
+          "
+
+      - name: Fetch upstream and dispatch to pool repos
+        env:
+          GH_TOKEN: ${{ secrets.ORG_DISPATCH_TOKEN }}
+        run: python scripts/orchestrator.py --fetch --dispatch
+
+      - name: Wait for pool repos to sync
+        run: |
+          echo "Waiting 10 minutes for pool repos to download packages..."
+          sleep 600
+
+      - name: Generate metadata
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+        run: python scripts/generate_metadata.py
+
+      - name: Commit and push metadata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dists/
+          if git diff --cached --quiet; then
+            echo "No metadata changes"
+          else
+            SUITES=$(python3 -c "import json; print(','.join(json.load(open('scripts/config.json'))['suites']))")
+            git commit -m "sync: update metadata for ${SUITES} $(date -u +%Y-%m-%d)"
+            git push
+          fi
