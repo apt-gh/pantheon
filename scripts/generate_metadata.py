@@ -236,12 +236,25 @@ def main() -> None:
     for suite in suites:
         log(f"Processing suite: {suite}")
 
+        # APT expects binary-all in addition to arch-specific dirs
+        all_arches = architectures + ["all"]
+
         for component in components:
-            for arch in architectures:
+            for arch in all_arches:
                 log(f"  {component}/binary-{arch}")
 
                 # 1. Fetch Packages.gz
-                packages_gz = fetch_packages_gz(upstream, suite, component, arch)
+                try:
+                    packages_gz = fetch_packages_gz(upstream, suite, component, arch)
+                except Exception as exc:
+                    log(f"    SKIP (not available): {exc}")
+                    # Create empty Packages files so Release checksums are consistent
+                    bin_dir = dists_dir / suite / component / f"binary-{arch}"
+                    empty_raw = b""
+                    write_bytes(bin_dir / "Packages.gz", gzip.compress(empty_raw))
+                    write_bytes(bin_dir / "Packages.xz", lzma.compress(empty_raw, preset=6))
+                    write_component_release(dists_dir, suite, component, arch)
+                    continue
 
                 # 2. Write Packages.gz
                 bin_dir = dists_dir / suite / component / f"binary-{arch}"
@@ -255,8 +268,8 @@ def main() -> None:
                 # 4. Per-component Release
                 write_component_release(dists_dir, suite, component, arch)
 
-        # 5. Top-level Release
-        release_text = build_top_level_release(dists_dir, suite, components, architectures)
+        # 5. Top-level Release — include "all" in architectures
+        release_text = build_top_level_release(dists_dir, suite, components, all_arches)
         release_path = dists_dir / suite / "Release"
         write_text(release_path, release_text)
 
