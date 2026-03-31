@@ -189,14 +189,19 @@ def dispatch_repo(org: str, repo_name: str, packages: list[dict]) -> bool:
         log(f"dispatching {repo_name}{batch_label} — {len(batch)} packages, {len(client_payload)} chars")
 
         try:
+            # Build full request body as JSON — client_payload must be an object, not a string
+            request_body = json.dumps({
+                "event_type": "sync",
+                "client_payload": json.loads(client_payload),
+            })
             result = subprocess.run(
                 [
                     "gh", "api",
                     f"repos/{org}/{repo_name}/dispatches",
                     "--method", "POST",
-                    "-f", "event_type=sync",
-                    "-f", f"client_payload={client_payload}",
+                    "--input", "-",
                 ],
+                input=request_body,
                 capture_output=True,
                 text=True,
                 timeout=60,
