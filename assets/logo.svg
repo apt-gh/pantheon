@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background square with rounded corners -->
+  <rect width="512" height="512" rx="48" ry="48" fill="#0d1117"/>
+
+  <!-- Tux body (penguin torso) -->
+  <ellipse cx="256" cy="310" rx="90" ry="115" fill="#1a1a2e"/>
+  <ellipse cx="256" cy="320" rx="65" ry="95" fill="#f0e6d3"/>
+
+  <!-- Tux head -->
+  <ellipse cx="256" cy="165" rx="75" ry="70" fill="#1a1a2e"/>
+
+  <!-- Eyes - white part -->
+  <ellipse cx="230" cy="150" rx="20" ry="24" fill="white"/>
+  <ellipse cx="282" cy="150" rx="20" ry="24" fill="white"/>
+
+  <!-- Eyes - pupils -->
+  <circle cx="234" cy="148" r="11" fill="#0d1117"/>
+  <circle cx="278" cy="148" r="11" fill="#0d1117"/>
+
+  <!-- Eye shine -->
+  <circle cx="238" cy="143" r="4" fill="white"/>
+  <circle cx="282" cy="143" r="4" fill="white"/>
+
+  <!-- Beak -->
+  <path d="M242 178 Q256 200 270 178 Q256 192 242 178" fill="#e8a317"/>
+
+  <!-- GitHub tentacle arms -->
+  <!-- Left -->
+  <path d="M166 290 Q130 275 110 310 Q95 340 118 358 Q135 370 152 350 Q165 332 166 300"
+        fill="#1a1a2e"/>
+  <path d="M110 310 Q92 322 97 342 Q102 356 118 358 Q108 345 112 332 Q115 320 110 310"
+        fill="#2d2d4e"/>
+
+  <!-- Right -->
+  <path d="M346 290 Q382 275 402 310 Q417 340 394 358 Q377 370 360 350 Q347 332 346 300"
+        fill="#1a1a2e"/>
+  <path d="M402 310 Q420 322 415 342 Q410 356 394 358 Q404 345 400 332 Q397 320 402 310"
+        fill="#2d2d4e"/>
+
+  <!-- Feet -->
+  <path d="M205 418 Q195 432 180 435 Q167 436 166 428 Q165 421 177 420 Q187 418 195 424 Z" fill="#e8a317"/>
+  <path d="M215 420 Q210 435 200 438 Q189 440 188 432 Q187 425 197 424 Q207 422 212 428 Z" fill="#e8a317"/>
+  <path d="M225 418 Q223 433 216 436 Q207 438 206 430 Q205 423 215 422 Q222 421 224 426 Z" fill="#e8a317"/>
+
+  <path d="M307 418 Q317 432 332 435 Q345 436 346 428 Q347 421 335 420 Q325 418 317 424 Z" fill="#e8a317"/>
+  <path d="M297 420 Q302 435 312 438 Q323 440 324 432 Q325 425 315 424 Q305 422 300 428 Z" fill="#e8a317"/>
+  <path d="M287 418 Q289 433 296 436 Q305 438 306 430 Q307 423 297 422 Q290 421 288 426 Z" fill="#e8a317"/>
+
+  <!-- Terminal symbol on belly -->
+  <text x="232" y="338" font-family="monospace" font-size="38" font-weight="bold" fill="#0d1117" opacity="0.6">&gt;_</text>
+
+  <!-- apt-gh text -->
+  <text x="256" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="2">apt-gh</text>
+</svg>
