@@ -1,0 +1,20 @@
+Origin: apt-gh
+Label: apt-gh
+Suite: noble
+Codename: noble
+Date: Tue, 31 Mar 2026 07:29:19 +0000
+Architectures: amd64
+Components: main
+Description: Ubuntu APT Mirror hosted on GitHub
+MD5Sum:
+ 61fdc2e5778117b129beb558acaf18f6          1808488 main/binary-amd64/Packages.gz
+ c41317070b482d5b4bce0f79f04a20e3          1401128 main/binary-amd64/Packages.xz
+ 615577c1060b35ed4d5244a188bd8815               80 main/binary-amd64/Release
+SHA1:
+ 41679a6fa11a0072c8d23ea9d4d63749ce83f632          1808488 main/binary-amd64/Packages.gz
+ b4e2e6b2cade837e9e28e32198eee4508c18df07          1401128 main/binary-amd64/Packages.xz
+ 2f4e481bc58bc0f677693dd5cb944b4d5aab5bd5               80 main/binary-amd64/Release
+SHA256:
+ e0d7e4cbb09d2aa7f9e104a1488817417bc9d85f3e5d9a21156a52ec641ae531          1808488 main/binary-amd64/Packages.gz
+ ee62ec98c5e0b821b264d1178187e2fc6e7e9858b8dfc05d2fae95449b72a40f          1401128 main/binary-amd64/Packages.xz
+ 303a48e6ea00661d3ef0e0ee860d7b0e9dca1f6dd76895b7a15eecbd93ca9b7b               80 main/binary-amd64/Release
