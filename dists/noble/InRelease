@@ -5,7 +5,7 @@ Origin: apt-gh
 Label: apt-gh
 Suite: noble
 Codename: noble
-Date: Fri, 21 Aug 2026 13:11:22 +0000
+Date: Sat, 22 Aug 2026 01:49:52 +0000
 Architectures: amd64 all
 Components: main
 Description: Ubuntu APT Mirror hosted on GitHub
@@ -15,7 +15,7 @@ MD5Sum:
  c41317070b482d5b4bce0f79f04a20e3          1401128 main/binary-amd64/Packages.xz
  615577c1060b35ed4d5244a188bd8815               80 main/binary-amd64/Release
  d41d8cd98f00b204e9800998ecf8427e                0 main/binary-all/Packages
- 51cd7f944f3e9a4682a41f558cdd195f               20 main/binary-all/Packages.gz
+ 25c9283ce4ccd536fd4b7a51672bbb78               20 main/binary-all/Packages.gz
  8dc5aea5b03dff8595f096f9e368e888               32 main/binary-all/Packages.xz
  5761e6bf9b48c39c3ce43d4f04b3c01a               78 main/binary-all/Release
 SHA1:
@@ -24,7 +24,7 @@ SHA1:
  b4e2e6b2cade837e9e28e32198eee4508c18df07          1401128 main/binary-amd64/Packages.xz
  2f4e481bc58bc0f677693dd5cb944b4d5aab5bd5               80 main/binary-amd64/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709                0 main/binary-all/Packages
- 4bf0915e56ab5d9f3a8e3d6606af50fa503dc93c               20 main/binary-all/Packages.gz
+ e925ca4367bccb93fdcd7518c409eff79d938bfe               20 main/binary-all/Packages.gz
  9746882f4236fa1c3a8f86be2f1d9c46680c0b10               32 main/binary-all/Packages.xz
  07e09685d8ae78e92a40f7ee8201f593d1a72a0c               78 main/binary-all/Release
 SHA256:
@@ -33,23 +33,23 @@ SHA256:
  ee62ec98c5e0b821b264d1178187e2fc6e7e9858b8dfc05d2fae95449b72a40f          1401128 main/binary-amd64/Packages.xz
  303a48e6ea00661d3ef0e0ee860d7b0e9dca1f6dd76895b7a15eecbd93ca9b7b               80 main/binary-amd64/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855                0 main/binary-all/Packages
- 048d9cadd06483649c63d820723439e1c0fb15e4ce363162ef4a98c646436daa               20 main/binary-all/Packages.gz
+ 8491e44db0d364c8f7f55484798c08ec06d59dd7b0d065dafe3e4c551db69f21               20 main/binary-all/Packages.gz
  0040f94d11d0039505328a90b2ff48968db873e9e7967307631bf40ef5679275               32 main/binary-all/Packages.xz
  08723f42976924b90837922f064d806fcf23c655693cdf04366d3e6ff902cd08               78 main/binary-all/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQJSBAEBCgA8FiEE/2hgto1xxL3y6Q0dVxdHGlb0OcgFAmqITnoeHG1pcnJvckBh
-cHQtZGVmaW5pc2kucGFnZXMuZGV2AAoJEFcXRxpW9DnIh20P/iEYl1HxqUjOvmOk
-tDVS8b7LJTO9cLDb4Mzgw0vFz/7FTrZz5ThoyUZWl4YsELo0ydb7EDUSPB1ygGo2
-8o9+gfoo3ADqOnf7v25SMAQVNI37thAqFBjoydiNdPzv/6jLjg/CP56qxF4bGlPa
-+NTxt8xjb5trfGcjsVyb00ytlqk/RiFdvRTONrgTqzzjisrdS8n1n515spLzu2tK
-dIQeL0mdN1VEyEev9aoxlCD7TrrWWIJxF6M5xD6QF1y4JfyeuXUxaH95z7BXZQg7
-a6tFabX9hprSt3AVVrh1UXByncCAkZ6j7qFv4mIiEAm+WtmRhD4DadOsKLsm4LOx
-3VOBjvRyh9HBdyqhdchPCIuu4vg/LynnodaZbfzTpPan601z1E3fh6KXBU1shMUh
-hxWbip3kL9bQCelMWjl9ubzD/oaqkNWP9eAsNlPavZpMyd3JSZkO3WungKscMQ7r
-FTc4P3wRTJMubEZxye/iA9vEFYB+DwJ96LYcDeLjsvnznog7qDhvt+3fbkEq93+F
-Hy7ZkrckU4XypJRSFqA4IqloshQz6Gg17SGdpIHlhqAwSGPD5Obr47BPRj+EeDp7
-ra1I0l+AWyypzYudYBBjXBaT2CdZ9FF2VFoaCuolKnyfrrUAefUwzKESmfpmYa6Z
-FdKO5GeJGtvCDbQjCXkSBAj97fee
-=aSsb
+iQJSBAEBCgA8FiEE/2hgto1xxL3y6Q0dVxdHGlb0OcgFAmqJAEEeHG1pcnJvckBh
+cHQtZGVmaW5pc2kucGFnZXMuZGV2AAoJEFcXRxpW9DnITjIQAMzGq0tO8rbpvRGH
+HS6yawSbDY8r1nv3Dmh3Oh6+n72eF/iZFgM8nJC++FfqbeKeZ9zd/Yh4NjPhj5wS
+xfn2he0I/No03+QXvLaciBjPVxzkuDAwOp4B3XALufoDUS+H7xWJSTleAi3nww1X
+BeupKc1rqf09qDMVwK08ZzHIVPoUb2AqiV4+gkkiumuGy9Ai86hoju8DFzOT5b8q
+vvyDBoSALrkmyWP9LvJcNy/aT+Ls5YtPRYYEYxC7bKGII7t8qXvUAAqEZyDnQnR5
+dfxa0sNRtGEFy4wUBtKX8WTj4QMqNE6IC5I0c+Y3nYZeSfFTmY7UCaVpDW3ZtKNz
+x1emNHrkcg4wVyvKN5dDXvUdlo9vyiLcKkrsWLQurCFZqNQEmjCQUvYoEr0SN40J
+RKPRLyaU7sCnBxnbts0GTr/UXh4EjRUFt67ClSibpG081B4/CFXhcKbyZ5VNs201
+5iUzMZ6GZCWi4Ch1QE8sA/AvtSPFSjRY5AKK3+bxNUx32SX3Afca1pB4MBsdHF+7
+nEi4+vO419Aeb+CX4JZrOT/u8peZtdmEbWZKEpvqxxepoT+1ozDVJYCKQIIKGOoV
+iGsjtqGqc6fosEh2GiAxvgAzcdXup1QgytH4wYM62JadXHAwiVpONPodXZ7YzE/P
+nFuLn+D2nTkjNNW8mo5mO8zfou/3
+=FmNI
 -----END PGP SIGNATURE-----
